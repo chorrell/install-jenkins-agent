@@ -44,7 +44,7 @@ while getopts j:n:s:u:w:h? options; do
         SECRET=${OPTARG}
         ;;
     u)
-        USER==${OPTARG}
+        USER=${OPTARG}
         ;;
     w)
         WORK_DIR=${OPTARG%%+(/)}
