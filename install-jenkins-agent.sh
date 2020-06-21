@@ -44,7 +44,7 @@ while getopts j:n:s:u:w:h? options; do
         SECRET=${OPTARG}
         ;;
     u)
-        USER==${OPTARG}
+        USER=${OPTARG}
         ;;
     w)
         WORK_DIR=${OPTARG%%+(/)}
@@ -86,7 +86,7 @@ RestartSec=10
 WantedBy=multi-user.target
 JENKINS_UNIT
 
-curl -o ${WORK_DIR}/agent.jar -Ssl ${JENKINS_URL}/jnlpJars/agent.jar
+curl -o "${WORK_DIR}"/agent.jar -Ssl "${JENKINS_URL}"/jnlpJars/agent.jar
 
 systemctl enable ${SERVICE_NAME}
 systemctl start ${SERVICE_NAME}
