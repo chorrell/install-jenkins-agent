@@ -4,7 +4,7 @@ set -euo pipefail
 IFS=$'\n\t'
 
 usage() {
-    cat <<USAGE
+  cat << USAGE
 Usage: $0 -n AGENT_NAME -s SECRET
     -j <JENKINS_URL> (Required. Full URL, e.g. https://jenkins.example)
     -n <AGENT_NAME> (Required. No spaces. Just letters, numbers or '-' and '_')
@@ -16,7 +16,7 @@ Usage: $0 -n AGENT_NAME -s SECRET
 Example:
     $0 -n nymi-nuc-01 -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
 USAGE
-    exit 1
+  exit 1
 }
 
 JENKINS_URL=
@@ -33,44 +33,44 @@ if [[ $EUID -ne 0 ]]; then
 fi
 
 while getopts j:n:s:u:w:h? options; do
-    case ${options} in
+  case ${options} in
     j)
-        JENKINS_URL=${OPTARG%%+(/)}
-        ;;
+      JENKINS_URL=${OPTARG%%+(/)}
+      ;;
     n)
-        AGENT_NAME=${OPTARG}
-        ;;
-    s) 
-        SECRET=${OPTARG}
-        ;;
+      AGENT_NAME=${OPTARG}
+      ;;
+    s)
+      SECRET=${OPTARG}
+      ;;
     u)
-        USER=${OPTARG}
-        ;;
+      USER=${OPTARG}
+      ;;
     w)
-        WORK_DIR=${OPTARG%%+(/)}
-        ;;
+      WORK_DIR=${OPTARG%%+(/)}
+      ;;
     h)
-        usage
-        ;;
+      usage
+      ;;
     ?)
-        usage
-        ;;
-    esac
+      usage
+      ;;
+  esac
 done
 
 if [[ -z ${JENKINS_URL} || -z ${AGENT_NAME} || -z ${SECRET} || -z ${WORK_DIR} ]]; then
-    echo "FATAL: No value for -j <JENKINS_URL>, -n <AGENT_NAME>, -s <SECRET> or -w <WORK_DIR>"
-    echo ""
-    usage
+  echo "FATAL: No value for -j <JENKINS_URL>, -n <AGENT_NAME>, -s <SECRET> or -w <WORK_DIR>"
+  echo ""
+  usage
 fi
 
 if [[ -z ${USER} ]]; then
-    USER=root
+  USER=root
 fi
 
 echo "Adding and enabling ${SERVICE_NAME}"
 
-cat <<JENKINS_UNIT > /etc/systemd/system/${SERVICE_NAME}
+cat << JENKINS_UNIT > /etc/systemd/system/${SERVICE_NAME}
 [Unit]
 Description=Jenkins agent
 Wants=network.target
