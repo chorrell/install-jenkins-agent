@@ -5,7 +5,7 @@ IFS=$'\n\t'
 
 usage() {
   cat << USAGE
-Usage: $0 -n AGENT_NAME -s SECRET
+Usage: sudo $0 -n AGENT_NAME -s SECRET
     -j <JENKINS_URL> (Required. Full URL, e.g. https://jenkins.example)
     -n <AGENT_NAME> (Required. No spaces. Just letters, numbers or '-' and '_')
     -s <SECRET> (Required.)
@@ -14,7 +14,7 @@ Usage: $0 -n AGENT_NAME -s SECRET
     -h help
 
 Example:
-    $0 -n nymi-nuc-01 -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
+    sudo $0 -n nymi-nuc-01 -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
 USAGE
   exit 1
 }
