@@ -18,10 +18,10 @@ Once your agent node has been created and saved in Jenkins, copy the **secret** 
 
 Once the node has been created and (and git and java are installed, run `install-jenkins-agent.sh` on the agent node using sudo to setup the servoce.
 
-For example, assuming the name of the node is _nymi-nuc-01_:
+For example, assuming the name of the node is _my-agent-01_:
 
 ```bash
-sudo ./install-jenkins-agent.sh -n nymi-nuc-01 -u jenkins -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
+sudo ./install-jenkins-agent.sh -n my-agent-01 -u jenkins -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
 ```
 
 The script will fetch `agent.jar` from your jenkins install and then create a systemd service using your desired options (user, working directory, etc.)

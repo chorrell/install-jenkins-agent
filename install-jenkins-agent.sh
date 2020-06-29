@@ -14,7 +14,7 @@ Usage: sudo $0 -n AGENT_NAME -s SECRET
     -h help
 
 Example:
-    sudo $0 -n nymi-nuc-01 -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
+    sudo $0 -n my-agent-01 -s 99ca2a6d125fab77fecee7013dc57f32ff1b9a0bed6a0bded952499a00cdcd49 -j https://jenkins.example -w /home/jenkins/jenkins
 USAGE
   exit 1
 }
