@@ -77,7 +77,7 @@ Wants=network.target
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/java -jar ${WORK_DIR}/agent.jar -jnlpUrl ${JENKINS_URL}/computer/${AGENT_NAME}/slave-agent.jnlp -secret ${SECRET} -workDir "${WORK_DIR}"
+ExecStart=/usr/bin/java -jar ${WORK_DIR}/agent.jar -jnlpUrl ${JENKINS_URL}/computer/${AGENT_NAME}/jenkins-agent.jnlp -secret ${SECRET} -workDir "${WORK_DIR}"
 Restart=always
 User=${USER}
 RestartSec=10
