@@ -8,7 +8,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - run: docker run --rm -v "$(pwd)":/sh -w /sh mvdan/shfmt:v3.1.1 -sr -i 2 -l -w -ci .
+      - run: docker run --rm -v "$(pwd)":/sh -w /sh mvdan/shfmt:v3 -sr -i 2 -l -w -ci .
       - run: git diff --color --exit-code
 
   shellcheck:
