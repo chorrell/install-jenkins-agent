@@ -70,6 +70,10 @@ fi
 
 echo "Adding and enabling ${SERVICE_NAME}"
 
+cat << JENKINS_SECRET > "${WORK_DIR}"/jenkins-agent-secret
+${SECRET}
+JENKINS_SECRET
+
 cat << JENKINS_UNIT > /etc/systemd/system/${SERVICE_NAME}
 [Unit]
 Description=Jenkins agent
@@ -77,7 +81,8 @@ Wants=network.target
 After=network.target
 
 [Service]
-ExecStart=/usr/bin/java -jar ${WORK_DIR}/agent.jar -jnlpUrl ${JENKINS_URL}/computer/${AGENT_NAME}/jenkins-agent.jnlp -secret ${SECRET} -workDir "${WORK_DIR}"
+ExecStartPre=/usr/bin/curl -o ${WORK_DIR}/agent.jar -Ssl ${JENKINS_URL}/jnlpJars/agent.jar
+ExecStart=/usr/bin/java -jar ${WORK_DIR}/agent.jar -jnlpUrl ${JENKINS_URL}/computer/${AGENT_NAME}/jenkins-agent.jnlp -secret @${WORK_DIR}/jenkins-agent-secret -workDir ${WORK_DIR}
 Restart=always
 User=${USER}
 RestartSec=10
@@ -85,8 +90,6 @@ RestartSec=10
 [Install]
 WantedBy=multi-user.target
 JENKINS_UNIT
-
-curl -o "${WORK_DIR}"/agent.jar -Ssl "${JENKINS_URL}"/jnlpJars/agent.jar
 
 systemctl enable ${SERVICE_NAME}
 systemctl start ${SERVICE_NAME}
