@@ -82,7 +82,7 @@ After=network.target
 
 [Service]
 ExecStartPre=/usr/bin/curl -o ${WORK_DIR}/agent.jar -Ssl ${JENKINS_URL}/jnlpJars/agent.jar
-ExecStart=/usr/bin/java -jar ${WORK_DIR}/agent.jar -jnlpUrl ${JENKINS_URL}/computer/${AGENT_NAME}/jenkins-agent.jnlp -secret @${WORK_DIR}/jenkins-agent-secret -workDir ${WORK_DIR}
+ExecStart=/usr/bin/java -jar ${WORK_DIR}/agent.jar -url ${JENKINS_URL} -name "${AGENT_NAME}" -secret @${WORK_DIR}/jenkins-agent-secret -workDir "${WORK_DIR}"
 Restart=always
 User=${USER}
 RestartSec=10
