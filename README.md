@@ -9,7 +9,7 @@ The `install-jenkins-agent.sh` script simplifies things by:
 
 ## Prerequisites
 
-- A **Permanent Agent** in Jenkins (created via https://example.com/computer/new) with the desired working directory.
+- A **Permanent Agent** in Jenkins (created via <https://example.com/computer/new>) with the desired working directory.
 - Git and Java installed on the agent node (For example, on Ubuntu 20.04: `apt-get install git openjdk-11-jdk-headless`)
 
 ## Usage

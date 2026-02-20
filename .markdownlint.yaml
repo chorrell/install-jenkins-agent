@@ -1,0 +1,2 @@
+# Exclude line length rule to allow longer documentation lines
+MD013: false
