@@ -16,7 +16,7 @@ The `install-jenkins-agent.sh` script simplifies things by:
 
 Once your agent node has been created and saved in Jenkins, copy the **secret** string from the instructions under _Run from agent command line_.
 
-Once the node has been created and (and git and java are installed, run `install-jenkins-agent.sh` on the agent node using sudo to setup the servoce.
+Once the node has been created and (and git and java are installed, run `install-jenkins-agent.sh` on the agent node using sudo to setup the service.
 
 For example, assuming the name of the node is _my-agent-01_:
 
