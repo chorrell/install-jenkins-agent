@@ -17,5 +17,5 @@ repos:
   - repo: https://github.com/DavidAnson/markdownlint-cli2
     rev: v0.15.0
     hooks:
-      - id: markdownlint-cli2
+      - id: markdownlint-cli2-docker
         types: [markdown]
