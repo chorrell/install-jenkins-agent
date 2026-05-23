@@ -3,6 +3,9 @@ name: markdownlint
 on:
   pull_request:
 
+permissions:
+  contents: read
+
 jobs:
   markdownlint:
     name: Markdown Lint
