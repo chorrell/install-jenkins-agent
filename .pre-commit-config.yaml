@@ -1,4 +1,29 @@
 repos:
+  - repo: https://github.com/rhysd/actionlint
+    rev: v1.7.12
+    hooks:
+      - id: actionlint
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: https://github.com/DavidAnson/markdownlint-cli2
+    rev: v0.22.1
+    hooks:
+      - id: markdownlint-cli2-docker
+
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v6.0.0
+    hooks:
+      - id: trailing-whitespace
+      - id: end-of-file-fixer
+      - id: check-yaml
+      - id: check-merge-conflict
+      - id: check-added-large-files
+      - id: mixed-line-ending
+
   - repo: https://github.com/koalaman/shellcheck-precommit
     rev: v0.11.0
     hooks:
@@ -14,8 +39,7 @@ repos:
         types: [shell]
         files: \.(sh|bats)$
 
-  - repo: https://github.com/DavidAnson/markdownlint-cli2
-    rev: v0.22.1
+  - repo: https://github.com/woodruffw/zizmor-pre-commit
+    rev: v1.25.2
     hooks:
-      - id: markdownlint-cli2-docker
-        types: [markdown]
+      - id: zizmor
