@@ -3,7 +3,11 @@ updates:
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
-      interval: "daily"
+      interval: "monthly"
+    groups:
+      monthly-batch:
+        patterns:
+          - "*"
     pull-request-branch-name:
       separator: "/"
     commit-message:
@@ -14,9 +18,13 @@ updates:
   - package-ecosystem: "pre-commit"
     directory: "/"
     schedule:
-      interval: "weekly"
+      interval: "monthly"
     pull-request-branch-name:
       separator: "/"
+    groups:
+      monthly-batch:
+        patterns:
+          - "*"
     commit-message:
       prefix: "chore"
       include: "scope"
