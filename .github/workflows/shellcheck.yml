@@ -7,19 +7,5 @@ permissions:
   contents: read
 
 jobs:
-  shfmt:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - run: docker run --rm -v "$(pwd)":/sh -w /sh mvdan/shfmt:v3 -sr -i 2 -l -w -ci .
-      - run: git diff --color --exit-code
-
-  shellcheck:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-        with:
-          persist-credentials: false
-      - run: shellcheck ./*.sh
+  shell-lint:
+    uses: chorrell/workflows/.github/workflows/shell-lint.yml@v1
