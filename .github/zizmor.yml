@@ -1,0 +1,8 @@
+---
+# Allow my own reusable workflows (chorrell/workflows) to be called by tag;
+# everything else keeps zizmor's default hash-pin policy.
+rules:
+  unpinned-uses:
+    config:
+      policies:
+        "chorrell/*": ref-pin
