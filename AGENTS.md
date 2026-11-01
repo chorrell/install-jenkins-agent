@@ -43,6 +43,6 @@ Flags: `-j` Jenkins URL, `-n` agent name, `-s` secret, `-u` service user
 ## Contributing
 
 1. Branch from `main`.
-2. Run `pre-commit run --all-files` before committing.
+2. Run `prek run --all-files` before committing.
 3. Test the script against a real or disposable agent node.
 4. Open a PR; CI runs shellcheck and markdownlint.
