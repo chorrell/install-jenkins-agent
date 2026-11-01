@@ -1,0 +1,17 @@
+---
+# Auto-merges Dependabot's monthly "tooling" PR (Actions and pre-commit hooks)
+# once required checks pass, when every update is minor or patch.
+name: dependabot-automerge
+
+on:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  dependabot-automerge:
+    permissions:
+      contents: write  # merge the PR
+      pull-requests: write  # enable auto-merge
+    uses: chorrell/workflows/.github/workflows/dependabot-automerge.yml@v1
